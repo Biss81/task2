@@ -3,6 +3,10 @@
 ## Клонируем репозиторий
 git clone https://github.com/Biss81/task2
 
+## Переходим в каталог
+
+cd task2
+
 ## Запускаем контейнеры
 docker-compose up
 
