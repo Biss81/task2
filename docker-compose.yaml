@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+
+  wordpress:
+    image: wordpress:6.5.5-php8.1-apache
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: pieh6dael1Eich1e
+      WORDPRESS_DB_NAME: wpdb
+    volumes:
+      - ./html:/var/www/html
+
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: wpdb
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: pieh6dael1Eich1e
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./db:/var/lib/mysql
+
